@@ -1,0 +1,50 @@
+"User","Email","Client","Project","Task","Description","Billable","Start date","Start time","End date","End time","Duration","Tags","Amount (USD)"
+"John Doe","john.doe@example.com","Acme Corp","Project Alpha","Task A","Review documentation","Yes","2025-04-02","10:41:56","2025-04-02","11:51:07","01:09:11","Research","345.91"
+"John Doe","john.doe@example.com","Acme Corp","Project Alpha","Task A","Review documentation","Yes","2025-04-02","12:22:00","2025-04-02","13:19:17","00:57:17","Research","286.41"
+"John Doe","john.doe@example.com","Acme Corp","Project Alpha","Task A","Review documentation","Yes","2025-04-02","15:16:08","2025-04-02","16:05:53","00:49:45","Research","248.75"
+"John Doe","john.doe@example.com","Acme Corp","Project Alpha","Task A","Review documentation","Yes","2025-04-02","16:14:09","2025-04-02","16:56:35","00:42:26","Research","212.16"
+"John Doe","john.doe@example.com","Acme Corp","Project Alpha","Task A","Review documentation","Yes","2025-04-02","17:29:21","2025-04-02","17:36:07","00:06:46","Research","33.83"
+"John Doe","john.doe@example.com","Acme Corp","Project Beta","Task B","Monthly reporting","No","2025-04-02","21:10:00","2025-04-02","22:29:44","01:19:44","",
+"John Doe","john.doe@example.com","Acme Corp","Project Alpha","Task A","Email correspondence","Yes","2025-04-03","11:06:28","2025-04-03","11:15:35","00:09:07","Comms","45.58"
+"John Doe","john.doe@example.com","Acme Corp","Project Alpha","Task A","Team discussion","Yes","2025-04-03","11:24:19","2025-04-03","12:05:08","00:40:49","Comms","204.08"
+"John Doe","john.doe@example.com","Acme Corp","Project Alpha","Task A","Training coordination","Yes","2025-04-03","13:49:00","2025-04-03","14:09:00","00:20:00","Comms","100.00"
+"John Doe","john.doe@example.com","Acme Corp","Project Alpha","Task A","Meeting prep and follow-up","Yes","2025-04-04","08:52:39","2025-04-04","10:02:32","01:09:53","Comms","349.41"
+"John Doe","john.doe@example.com","Example LLC","Operations","Task C","Professional development","No","2025-04-04","11:00:00","2025-04-04","12:02:06","01:02:06","",
+"John Doe","john.doe@example.com","Acme Corp","Project Alpha","Task A","Review documentation","Yes","2025-04-04","12:43:56","2025-04-04","13:08:36","00:24:40","Research","123.33"
+"John Doe","john.doe@example.com","Acme Corp","Project Alpha","Task A","Review documentation","Yes","2025-04-04","13:08:00","2025-04-04","13:48:15","00:40:15","Research","201.25"
+"John Doe","john.doe@example.com","Acme Corp","Project Alpha","Task A","Process improvement session","Yes","2025-04-04","13:59:51","2025-04-04","15:33:51","01:34:00","Comms","470.00"
+"John Doe","john.doe@example.com","Example LLC","Operations","Task C","Tool configuration","No","2025-04-07","09:09:46","2025-04-07","16:53:19","07:43:33","",
+"John Doe","john.doe@example.com","Acme Corp","Project Alpha","Task A","Team sync meeting","Yes","2025-04-07","17:47:00","2025-04-07","18:33:30","00:46:30","Comms","232.50"
+"John Doe","john.doe@example.com","Acme Corp","Project Alpha","Task A","Quick check-in","Yes","2025-04-08","08:30:00","2025-04-08","08:35:00","00:05:00","Comms","25.00"
+"John Doe","john.doe@example.com","Acme Corp","Project Alpha","Task A","System research","Yes","2025-04-08","08:40:00","2025-04-08","09:01:04","00:21:04","Research","105.33"
+"John Doe","john.doe@example.com","Acme Corp","Project Alpha","Task A","Platform evaluation","No","2025-04-08","10:40:00","2025-04-08","12:16:34","01:36:34","Research",
+"John Doe","john.doe@example.com","Acme Corp","Project Alpha","Task A","Project discussion","Yes","2025-04-08","12:45:00","2025-04-08","14:23:23","01:38:23","Comms","491.91"
+"John Doe","john.doe@example.com","Acme Corp","Project Alpha","Task A","Requirements discussion","Yes","2025-04-08","16:29:11","2025-04-08","17:40:54","01:11:43","Comms","358.58"
+"John Doe","john.doe@example.com","Example LLC","Operations","Task C","Tool configuration","No","2025-04-08","17:57:38","2025-04-08","19:08:53","01:11:15","",
+"John Doe","john.doe@example.com","Example LLC","Operations","Task C","Tool configuration","No","2025-04-08","19:09:52","2025-04-08","20:43:35","01:33:43","",
+"John Doe","john.doe@example.com","Example LLC","Operations","Task C","Tool configuration","No","2025-04-08","20:43:39","2025-04-08","21:49:02","01:05:23","",
+"John Doe","john.doe@example.com","Example LLC","Operations","Task C","Tool configuration","No","2025-04-08","23:22:54","2025-04-08","23:56:04","00:33:10","",
+"John Doe","john.doe@example.com","Example LLC","Operations","Task C","Tool configuration","No","2025-04-08","23:56:06","2025-04-09","01:16:21","01:20:15","",
+"John Doe","john.doe@example.com","Example LLC","Operations","Task C","Tool configuration","No","2025-04-09","01:16:21","2025-04-09","01:56:35","00:40:14","",
+"John Doe","john.doe@example.com","Example LLC","Operations","Task C","Tool configuration","No","2025-04-09","01:56:35","2025-04-09","03:04:06","01:07:31","",
+"John Doe","john.doe@example.com","Example LLC","Operations","Task C","Tool configuration","No","2025-04-09","09:30:00","2025-04-09","15:45:00","06:15:00","",
+"John Doe","john.doe@example.com","Acme Corp","Project Alpha","Task A","Training completion and communications","Yes","2025-04-10","09:00:00","2025-04-10","12:30:00","03:30:00","Comms","1050.00"
+"John Doe","john.doe@example.com","Acme Corp","Project Alpha","Task A","Meeting preparation","Yes","2025-04-10","12:30:00","2025-04-10","13:30:00","01:00:00","Research","300.00"
+"John Doe","john.doe@example.com","Acme Corp","Project Alpha","Task A","Client meeting","Yes","2025-04-10","14:25:00","2025-04-10","15:45:33","01:20:33","Comms","402.75"
+"John Doe","john.doe@example.com","Acme Corp","Project Alpha","Task A","Technical discussion","Yes","2025-04-14","14:59:00","2025-04-14","16:26:00","01:27:00","Comms","435.00"
+"John Doe","john.doe@example.com","Acme Corp","Project Alpha","Task A","Call preparation","Yes","2025-04-18","09:00:00","2025-04-18","09:28:04","00:28:04","Comms","140.33"
+"John Doe","john.doe@example.com","Acme Corp","Project Alpha","Task A","Client call","Yes","2025-04-18","09:28:28","2025-04-18","09:29:53","00:01:25","Comms","7.08"
+"John Doe","john.doe@example.com","Acme Corp","Project Alpha","Task A","Requirements review","Yes","2025-04-18","09:38:00","2025-04-18","10:41:00","01:03:00","Research","315.00"
+"John Doe","john.doe@example.com","Acme Corp","Project Alpha","Task A","Follow-up discussion","Yes","2025-04-18","15:18:56","2025-04-18","16:11:54","00:52:58","Comms","264.83"
+"John Doe","john.doe@example.com","Acme Corp","Project Alpha","Task A","Status update call","Yes","2025-04-21","11:50:00","2025-04-21","12:21:12","00:31:12","Comms","156.00"
+"John Doe","john.doe@example.com","Acme Corp","Project Alpha","Task A","Document review","Yes","2025-04-23","08:39:26","2025-04-23","09:23:04","00:43:38","Research","218.16"
+"John Doe","john.doe@example.com","Acme Corp","Project Alpha","Task A","Strategy discussion","Yes","2025-04-23","10:00:26","2025-04-23","10:32:57","00:32:31","Comms","162.58"
+"John Doe","john.doe@example.com","Acme Corp","Project Alpha","Task A","Status update call","Yes","2025-04-23","14:01:05","2025-04-23","14:41:03","00:39:58","Comms","199.83"
+"John Doe","john.doe@example.com","Acme Corp","Project Alpha","Task A","Meeting preparation","Yes","2025-04-25","12:00:00","2025-04-25","13:00:00","01:00:00","Research","300.00"
+"John Doe","john.doe@example.com","Acme Corp","Project Alpha","Task A","Project review meeting","Yes","2025-04-25","13:59:00","2025-04-25","15:28:00","01:29:00","Comms","445.00"
+"John Doe","john.doe@example.com","Example LLC","Operations","Task D","System configuration","No","2025-04-27","12:13:19","2025-04-27","13:25:17","01:11:58","",
+"John Doe","john.doe@example.com","Acme Corp","Project Alpha","Task A","Planning call","Yes","2025-04-28","09:58:00","2025-04-28","10:34:00","00:36:00","Comms","180.00"
+"John Doe","john.doe@example.com","Acme Corp","Project Alpha","Task A","Presentation review","Yes","2025-04-28","12:00:00","2025-04-28","12:30:00","00:30:00","Research","150.00"
+"John Doe","john.doe@example.com","Acme Corp","Project Alpha","Task A","Meeting preparation","Yes","2025-04-28","14:00:00","2025-04-28","15:00:00","01:00:00","Research","300.00"
+"John Doe","john.doe@example.com","Acme Corp","Project Alpha","Task A","Status check-in","Yes","2025-04-28","16:00:00","2025-04-28","16:55:00","00:55:00","Comms","275.00"
+"John Doe","john.doe@example.com","Example LLC","Operations","Task E","Financial reconciliation","No","2025-04-29","20:30:00","2025-04-29","22:08:48","01:38:48","",

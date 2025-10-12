@@ -1,0 +1,135 @@
+#!/usr/bin/env python3
+
+import csv
+from datetime import time, date, datetime, timedelta
+import sys
+
+## Ensure all required headers and data are present
+def required_headers(toggl_reader):
+    headers = ['Project', 'Task', 'Description', 'Start date', 'Start time', 'End date', 'End time', 'Duration', 'Tags']
+    for header in headers:
+        if header not in toggl_reader.fieldnames:
+            # raise an exception if the header is not found
+            raise Exception(f"Header '{header}' not found in the CSV file.")
+    return True
+
+def required_data(toggl_row):
+    if not toggl_row['Project'] or not toggl_row['Task'] or not toggl_row['Start date'] or not toggl_row['Start time'] or not toggl_row['End date'] or not toggl_row['End time']:
+        # raise an exception if any of the required fields are empty
+        raise Exception(f"Missing required data in the CSV file.")
+    return True
+
+# Splitting Days
+# Toggl entries with an end date different than the 
+# start date will be broken into separate entries, 
+# each with a single date.
+def getDuration(start_time, end_time):
+    start_time = datetime.strptime(start_time, '%H:%M:%S').time()
+    end_time = datetime.strptime(end_time, '%H:%M:%S').time()
+    
+    duration = datetime.combine(datetime.min, end_time) - datetime.combine(datetime.min, start_time)
+    duration = duration + timedelta(days=1) if duration.total_seconds() < 0 else duration
+    
+    hours = duration.seconds // 3600
+    minutes = (duration.seconds // 60) % 60
+    seconds = duration.seconds % 60
+    
+    duration_str = f"{hours:02d}:{minutes:02d}:{seconds:02d}"
+    return duration_str
+
+def splitDates(toggl_row):
+    rows = []
+    if 'Start date' in toggl_row:
+        start_date = toggl_row['Start date']
+        start_date = datetime.strptime(start_date, '%Y-%m-%d').date()
+    if 'End date' in toggl_row:
+        end_date = toggl_row['End date']
+        end_date = datetime.strptime(end_date, '%Y-%m-%d').date()
+    if start_date == end_date:
+        rows.append(toggl_row)
+    else:
+        while start_date < end_date:
+            new_row = toggl_row.copy()
+            new_row['Start date'] = start_date
+            new_row['End date'] = start_date
+            new_row['End time'] = '23:59:59'
+            new_row['Duration'] = getDuration(new_row['Start time'], new_row['End time'])
+            rows.append(new_row)
+            start_date = start_date + timedelta(days=1)
+            toggl_row['Start time'] = '00:00:00'
+        new_row = toggl_row.copy()
+        new_row['Start date'] = start_date
+        new_row['End date'] = start_date
+        new_row['End time'] = toggl_row['End time']
+        new_row['Duration'] = getDuration(new_row['Start time'], new_row['End time'])
+        rows.append(new_row)
+    return rows
+
+# Change Time Resolution [HH:mm:ss] to [HH:mm]
+def reformatTime(toggl_row):
+    start_time = time.fromisoformat(toggl_row['Start time'])
+    end_time = time.fromisoformat(toggl_row['End time'])
+    duration = datetime.combine(date.min, end_time) - datetime.combine(date.min, start_time)
+    
+    toggl_row['Start time'] =  start_time.strftime("%H:%M")
+    toggl_row['End time'] = end_time.strftime("%H:%M")
+    
+    duration = getDuration(toggl_row['Start time']+":00", toggl_row['End time']+":00")
+    # clip the seconds
+    duration = duration[:5]
+    toggl_row['Duration'] = duration
+    return toggl_row
+
+# Change Yes/No to Billable/Non Billable
+def renameBillable(toggl_row):
+    if toggl_row['Billable'] == 'Yes':
+        toggl_row['Billable'] = 'Billable'
+    else:
+        toggl_row['Billable'] = 'Non Billable'
+    return toggl_row
+
+# Header Renaming
+def renameHeaders(toggl_row):
+    zoho_row = {}
+    zoho_row['Project Name'] = toggl_row['Project']
+    zoho_row['Notes'] = toggl_row['Description']
+    zoho_row['Email'] = toggl_row['Email']
+    zoho_row['Task Name'] = toggl_row['Task']
+    zoho_row['Time Spent'] = toggl_row['Duration']
+    zoho_row['Begin Time'] = toggl_row['Start time']
+    zoho_row['End Time'] = toggl_row['End time']
+    zoho_row['Date'] = toggl_row['Start date']
+    zoho_row['Billable Status'] = toggl_row['Billable']
+    return zoho_row
+
+
+
+def main(argv):
+    if len(argv) != 1:
+        print('toggl2zoho: requires one input filename')
+        sys.exit()
+
+    input_filename = argv[0]
+    output_filename = 'zoho_' + input_filename
+    with open(input_filename, newline='', mode='r', encoding='utf-8-sig') as toggl_file:
+        toggl_reader = csv.DictReader(toggl_file)
+        if not required_headers(toggl_reader):
+            sys.exit()
+        zoho_rows = []
+        for toggl_row in toggl_reader:
+            if not required_data(toggl_row):
+                sys.exit()
+            rows = splitDates(toggl_row)
+            for r in rows:
+                r = reformatTime(r)
+                r = renameBillable(r)
+                zoho_row = renameHeaders(r)
+                zoho_rows.append(zoho_row)
+        with open(output_filename, mode='w', newline='', encoding='utf-8-sig') as zoho_file:
+            zoho_writer = csv.DictWriter(zoho_file, fieldnames=zoho_rows[0].keys())
+            zoho_writer.writeheader()
+            for zoho_row in zoho_rows:
+                zoho_writer.writerow(zoho_row)
+
+if __name__ == '__main__':
+    main(sys.argv[1:])

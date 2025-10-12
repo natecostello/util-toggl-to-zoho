@@ -1,0 +1,51 @@
+﻿Project Name,Notes,Email,Task Name,Time Spent,Begin Time,End Time,Date,Billable Status
+Project Alpha,Review documentation,john.doe@example.com,Task A,01:10,10:41,11:51,2025-04-02,Billable
+Project Alpha,Review documentation,john.doe@example.com,Task A,00:57,12:22,13:19,2025-04-02,Billable
+Project Alpha,Review documentation,john.doe@example.com,Task A,00:49,15:16,16:05,2025-04-02,Billable
+Project Alpha,Review documentation,john.doe@example.com,Task A,00:42,16:14,16:56,2025-04-02,Billable
+Project Alpha,Review documentation,john.doe@example.com,Task A,00:07,17:29,17:36,2025-04-02,Billable
+Project Beta,Monthly reporting,john.doe@example.com,Task B,01:19,21:10,22:29,2025-04-02,Non Billable
+Project Alpha,Email correspondence,john.doe@example.com,Task A,00:09,11:06,11:15,2025-04-03,Billable
+Project Alpha,Team discussion,john.doe@example.com,Task A,00:41,11:24,12:05,2025-04-03,Billable
+Project Alpha,Training coordination,john.doe@example.com,Task A,00:20,13:49,14:09,2025-04-03,Billable
+Project Alpha,Meeting prep and follow-up,john.doe@example.com,Task A,01:10,08:52,10:02,2025-04-04,Billable
+Operations,Professional development,john.doe@example.com,Task C,01:02,11:00,12:02,2025-04-04,Non Billable
+Project Alpha,Review documentation,john.doe@example.com,Task A,00:25,12:43,13:08,2025-04-04,Billable
+Project Alpha,Review documentation,john.doe@example.com,Task A,00:40,13:08,13:48,2025-04-04,Billable
+Project Alpha,Process improvement session,john.doe@example.com,Task A,01:34,13:59,15:33,2025-04-04,Billable
+Operations,Tool configuration,john.doe@example.com,Task C,07:44,09:09,16:53,2025-04-07,Non Billable
+Project Alpha,Team sync meeting,john.doe@example.com,Task A,00:46,17:47,18:33,2025-04-07,Billable
+Project Alpha,Quick check-in,john.doe@example.com,Task A,00:05,08:30,08:35,2025-04-08,Billable
+Project Alpha,System research,john.doe@example.com,Task A,00:21,08:40,09:01,2025-04-08,Billable
+Project Alpha,Platform evaluation,john.doe@example.com,Task A,01:36,10:40,12:16,2025-04-08,Non Billable
+Project Alpha,Project discussion,john.doe@example.com,Task A,01:38,12:45,14:23,2025-04-08,Billable
+Project Alpha,Requirements discussion,john.doe@example.com,Task A,01:11,16:29,17:40,2025-04-08,Billable
+Operations,Tool configuration,john.doe@example.com,Task C,01:11,17:57,19:08,2025-04-08,Non Billable
+Operations,Tool configuration,john.doe@example.com,Task C,01:34,19:09,20:43,2025-04-08,Non Billable
+Operations,Tool configuration,john.doe@example.com,Task C,01:06,20:43,21:49,2025-04-08,Non Billable
+Operations,Tool configuration,john.doe@example.com,Task C,00:34,23:22,23:56,2025-04-08,Non Billable
+Operations,Tool configuration,john.doe@example.com,Task C,00:03,23:56,23:59,2025-04-08,Non Billable
+Operations,Tool configuration,john.doe@example.com,Task C,01:16,00:00,01:16,2025-04-09,Non Billable
+Operations,Tool configuration,john.doe@example.com,Task C,00:40,01:16,01:56,2025-04-09,Non Billable
+Operations,Tool configuration,john.doe@example.com,Task C,01:08,01:56,03:04,2025-04-09,Non Billable
+Operations,Tool configuration,john.doe@example.com,Task C,06:15,09:30,15:45,2025-04-09,Non Billable
+Project Alpha,Training completion and communications,john.doe@example.com,Task A,03:30,09:00,12:30,2025-04-10,Billable
+Project Alpha,Meeting preparation,john.doe@example.com,Task A,01:00,12:30,13:30,2025-04-10,Billable
+Project Alpha,Client meeting,john.doe@example.com,Task A,01:20,14:25,15:45,2025-04-10,Billable
+Project Alpha,Technical discussion,john.doe@example.com,Task A,01:27,14:59,16:26,2025-04-14,Billable
+Project Alpha,Call preparation,john.doe@example.com,Task A,00:28,09:00,09:28,2025-04-18,Billable
+Project Alpha,Client call,john.doe@example.com,Task A,00:01,09:28,09:29,2025-04-18,Billable
+Project Alpha,Requirements review,john.doe@example.com,Task A,01:03,09:38,10:41,2025-04-18,Billable
+Project Alpha,Follow-up discussion,john.doe@example.com,Task A,00:53,15:18,16:11,2025-04-18,Billable
+Project Alpha,Status update call,john.doe@example.com,Task A,00:31,11:50,12:21,2025-04-21,Billable
+Project Alpha,Document review,john.doe@example.com,Task A,00:44,08:39,09:23,2025-04-23,Billable
+Project Alpha,Strategy discussion,john.doe@example.com,Task A,00:32,10:00,10:32,2025-04-23,Billable
+Project Alpha,Status update call,john.doe@example.com,Task A,00:40,14:01,14:41,2025-04-23,Billable
+Project Alpha,Meeting preparation,john.doe@example.com,Task A,01:00,12:00,13:00,2025-04-25,Billable
+Project Alpha,Project review meeting,john.doe@example.com,Task A,01:29,13:59,15:28,2025-04-25,Billable
+Operations,System configuration,john.doe@example.com,Task D,01:12,12:13,13:25,2025-04-27,Non Billable
+Project Alpha,Planning call,john.doe@example.com,Task A,00:36,09:58,10:34,2025-04-28,Billable
+Project Alpha,Presentation review,john.doe@example.com,Task A,00:30,12:00,12:30,2025-04-28,Billable
+Project Alpha,Meeting preparation,john.doe@example.com,Task A,01:00,14:00,15:00,2025-04-28,Billable
+Project Alpha,Status check-in,john.doe@example.com,Task A,00:55,16:00,16:55,2025-04-28,Billable
+Operations,Financial reconciliation,john.doe@example.com,Task E,01:38,20:30,22:08,2025-04-29,Non Billable
