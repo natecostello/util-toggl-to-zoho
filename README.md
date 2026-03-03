@@ -27,35 +27,24 @@ This command-line utility streamlines the workflow of tracking time in Toggl Tra
 
 ### For Users (Recommended)
 
-Install using `pipx` for isolated, global access:
+Install using `uv` for isolated, global access:
 
 ```bash
-pipx install git+https://github.com/natecostello/util-toggl-to-zoho.git
+uv tool install git+https://github.com/natecostello/util-toggl-to-zoho.git
 ```
 
-If you don't have `pipx` installed:
-
-```bash
-python3 -m pip install --user pipx
-python3 -m pipx ensurepath
-```
-
-After installation, restart your terminal or run `source ~/.zshrc` (or `~/.bashrc`).
+If you don't have `uv` installed, see [uv installation docs](https://docs.astral.sh/uv/getting-started/installation/).
 
 ### For Developers
 
-Clone the repository and install in editable mode with a virtual environment:
+Clone the repository and sync dependencies:
 
 ```bash
 git clone https://github.com/natecostello/util-toggl-to-zoho.git
 cd util-toggl-to-zoho
 
-# Create and activate virtual environment
-python3 -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-
-# Install in editable mode with dev dependencies
-pip install -e ".[dev]"
+# Install dependencies (creates venv automatically)
+uv sync
 ```
 
 ## Usage
@@ -155,19 +144,15 @@ pytest --cov=toggl_to_zoho
 pytest tests/test_converter.py
 ```
 
-### Code Formatting
+### Code Formatting & Linting
 
 ```bash
 # Format code
-black src/ tests/
+ruff format src/ tests/
 
 # Check formatting without making changes
-black --check src/ tests/
-```
+ruff format --check src/ tests/
 
-### Linting
-
-```bash
 # Run linter
 ruff check src/ tests/
 
@@ -178,8 +163,8 @@ ruff check --fix src/ tests/
 ### Running Locally Without Installing
 
 ```bash
-# From the repo root with venv activated
-python -m toggl_to_zoho input.csv output.csv
+# From the repo root
+uv run python -m toggl_to_zoho input.csv output.csv
 ```
 
 ## Upgrading
@@ -187,19 +172,13 @@ python -m toggl_to_zoho input.csv output.csv
 To upgrade to the latest version:
 
 ```bash
-pipx upgrade toggl-to-zoho
-```
-
-Or if you installed from the repository:
-
-```bash
-pipx reinstall toggl-to-zoho
+uv tool upgrade toggl-to-zoho
 ```
 
 ## Uninstalling
 
 ```bash
-pipx uninstall toggl-to-zoho
+uv tool uninstall toggl-to-zoho
 ```
 
 ## How It Works

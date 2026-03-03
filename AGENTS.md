@@ -3,8 +3,8 @@
 ## Context
 This repository contains a Python command-line utility that converts Toggl time tracking CSV exports to Zoho-compatible CSV format. The goal is to refactor it into a properly packaged Python project following modern best practices while keeping it lightweight.
 
-**Key Decisions:** 
-- This is a CLI tool, so `pipx` should be the recommended installation method for end users
+**Key Decisions:**
+- This is a CLI tool, so `uv tool install` should be the recommended installation method for end users
 - Command name and package name will both be `toggl-to-zoho` for consistency and better UX
 - Support stdin/stdout pipes for flexible workflows
 - Maintain zero runtime dependencies (stdlib only)
@@ -56,8 +56,8 @@ Create a modern `pyproject.toml` file with:
 - Project metadata (name: `toggl-to-zoho`, version: 0.1.0)
 - Minimal dependencies (only stdlib is currently used, so initially empty)
 - Console script entry point: `toggl-to-zoho` (matching package name for UX consistency)
-- Optional dev dependencies: pytest, black, ruff
-- **Important**: Ensure `[project.scripts]` is properly configured for pipx compatibility
+- Optional dev dependencies: pytest, ruff
+- **Important**: Ensure `[project.scripts]` is properly configured for `uv tool install` compatibility
 
 Example:
 ```toml
@@ -80,7 +80,6 @@ toggl-to-zoho = "toggl_to_zoho.cli:main"
 [project.optional-dependencies]
 dev = [
     "pytest>=7.0",
-    "black",
     "ruff",
 ]
 ```
@@ -146,7 +145,7 @@ Create thorough test coverage across multiple levels:
 - Use consistent fake data: "John Doe", "john.doe@example.com", "Acme Corp", "Project Alpha"
 
 ### Task 5: Update Documentation
-Update `README.md` with pipx-first installation instructions:
+Update `README.md` with uv-first installation instructions:
 
 **Installation Section:**
 ```markdown
@@ -157,29 +156,17 @@ Convert Toggl time tracking CSV exports to Zoho Books-compatible CSV format.
 ## Installation
 
 ### For Users (Recommended)
-Install using pipx for isolated, global access:
+Install using uv for isolated, global access:
 ```bash
-pipx install git+https://github.com/natecostello/util-toggl-to-zoho.git
-```
-
-If you don't have pipx installed:
-```bash
-python3 -m pip install --user pipx
-python3 -m pipx ensurepath
+uv tool install git+https://github.com/natecostello/util-toggl-to-zoho.git
 ```
 
 ### For Developers
-Clone and install in editable mode with a virtual environment:
+Clone and sync dependencies:
 ```bash
 git clone https://github.com/natecostello/util-toggl-to-zoho.git
 cd util-toggl-to-zoho
-
-# Create and activate virtual environment
-python3 -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-
-# Install in editable mode with dev dependencies
-pip install -e ".[dev]"
+uv sync
 ```
 
 ## Usage
@@ -198,12 +185,12 @@ toggl-to-zoho --help
 
 ### Running Tests
 ```bash
-pytest
+uv run pytest
 ```
 
-### Code Formatting
+### Code Formatting & Linting
 ```bash
-black src/ tests/
+ruff format src/ tests/
 ruff check src/ tests/
 ```
 
@@ -211,20 +198,19 @@ ruff check src/ tests/
 
 To upgrade to the latest version:
 ```bash
-pipx upgrade toggl-to-zoho
+uv tool upgrade toggl-to-zoho
 ```
 
 ## Uninstalling
 
 ```bash
-pipx uninstall toggl-to-zoho
+uv tool uninstall toggl-to-zoho
 ```
 ```
 
 Include:
-- Clear pipx installation instructions as primary method
-- How to install pipx itself
-- Development setup with venv workflow
+- Clear uv installation instructions as primary method
+- Development setup with uv sync workflow
 - Usage examples with the new CLI command (`toggl-to-zoho`)
 - Basic development commands (testing, formatting)
 - Upgrade and uninstall instructions
@@ -288,10 +274,10 @@ Update or create:
 1. **Lightweight**: Use only stdlib where possible, minimal dependencies
 2. **Modern**: Follow PEP 621 (pyproject.toml) and current packaging standards
 3. **src/ layout**: Prevents import errors and follows best practices
-4. **Installable**: Users can pipx install directly from GitHub
+4. **Installable**: Users can `uv tool install` directly from GitHub
 5. **Maintainable**: Clear separation of CLI, business logic, and utilities
-6. **pipx-optimized**: Package structure designed for CLI tool isolation
-7. **venv-friendly**: Easy local development with virtual environments
+6. **uv-optimized**: Package structure designed for CLI tool isolation
+7. **uv-friendly**: Easy local development with `uv sync`
 8. **Consistent naming**: Package name matches command name (`toggl-to-zoho`) for better UX
 9. **Dynamic versioning**: Single source of truth in `__init__.py`, read by pyproject.toml
 10. **Pipe-friendly**: Support both file-based and stdin/stdout pipe workflows
@@ -302,34 +288,25 @@ Update or create:
 ```bash
 git clone https://github.com/natecostello/util-toggl-to-zoho.git
 cd util-toggl-to-zoho
-python3 -m venv venv
-source venv/bin/activate
-pip install -e ".[dev]"
+uv sync
 ```
 
 ### Daily Development
 ```bash
-source venv/bin/activate  # Activate venv
 # Make changes
-pytest                     # Run tests
-black src/ tests/          # Format code
+uv run pytest              # Run tests
+ruff format src/ tests/    # Format code
 ruff check src/ tests/     # Lint code
 ```
 
 ### Testing User Experience
 ```bash
-# Deactivate dev venv
-deactivate
-
-# Install with pipx to test user experience
-pipx install .
+# Install with uv to test user experience
+uv tool install .
 toggl-to-zoho --help
 
 # Uninstall when done testing
-pipx uninstall toggl-to-zoho
-
-# Reactivate dev venv
-source venv/bin/activate
+uv tool uninstall toggl-to-zoho
 ```
 
 ### Optional: Create Personal Alias
@@ -343,43 +320,42 @@ Then you can use: `t2z input.csv output.csv`
 ## Installation Methods (Post-Implementation)
 
 ### End Users
-- **Primary**: `pipx install git+https://github.com/natecostello/util-toggl-to-zoho.git`
-- Alternative: `pip install --user git+https://github.com/natecostello/util-toggl-to-zoho.git` (not recommended)
+- **Primary**: `uv tool install git+https://github.com/natecostello/util-toggl-to-zoho.git`
 
 ### Developers
-- Development mode with venv: `python3 -m venv venv && source venv/bin/activate && pip install -e ".[dev]"`
+- Development mode: `uv sync`
 
 ### Future
-- Publish to PyPI for simple: `pipx install toggl-to-zoho`
+- Publish to PyPI for simple: `uv tool install toggl-to-zoho`
 
 ## Non-Goals
 - Don't add unnecessary dependencies
 - Don't create standalone executables (PyInstaller) unless specifically requested
 - Don't over-engineer - keep it simple and focused
-- Don't use pip for user installation examples (use pipx instead)
+- Don't use pip for user installation examples (use uv instead)
 - Don't require Docker/DevContainers for development
 - Don't use inconsistent naming between package and command
 
 ## Success Criteria
-- ✅ Can install with pipx from GitHub
-- ✅ Command `toggl-to-zoho` available globally after pipx installation
+- ✅ Can install with `uv tool install` from GitHub
+- ✅ Command `toggl-to-zoho` available globally after `uv tool install`
 - ✅ Package name and command name match (`toggl-to-zoho`)
 - ✅ Each installation is isolated from other Python packages
 - ✅ Original functionality preserved
 - ✅ Code is more maintainable and testable
 - ✅ Follows Python packaging best practices
 - ✅ Remains lightweight (minimal dependencies)
-- ✅ Easy to uninstall: `pipx uninstall toggl-to-zoho`
-- ✅ Simple venv-based development workflow
+- ✅ Easy to uninstall: `uv tool uninstall toggl-to-zoho`
+- ✅ Simple uv-based development workflow
 - ✅ Can be developed on any platform without Docker
 - ✅ User experience is intuitive (install name matches command name)
 
-## Testing pipx Installation
+## Testing uv Installation
 Before considering the refactor complete, test:
 ```bash
 # Install from local directory
 cd /path/to/util-toggl-to-zoho
-pipx install .
+uv tool install .
 
 # Verify command is available
 which toggl-to-zoho
@@ -389,16 +365,16 @@ toggl-to-zoho --help
 toggl-to-zoho sample-input.csv output.csv
 
 # Uninstall
-pipx uninstall toggl-to-zoho
+uv tool uninstall toggl-to-zoho
 
 # Install from GitHub (final test)
-pipx install git+https://github.com/natecostello/util-toggl-to-zoho.git
+uv tool install git+https://github.com/natecostello/util-toggl-to-zoho.git
 toggl-to-zoho --version
 ```
 
 ## Notes on Naming
 - **Repository**: `util-toggl-to-zoho` (keeping current name to avoid breaking URLs/clones)
-- **Package**: `toggl-to-zoho` (PyPI/pipx install name)
+- **Package**: `toggl-to-zoho` (PyPI/uv install name)
 - **Command**: `toggl-to-zoho` (what users type)
 - **Module**: `toggl_to_zoho` (Python import name, with underscores)
 
