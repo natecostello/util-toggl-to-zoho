@@ -21,6 +21,8 @@ def required_headers(toggl_reader: csv.DictReader) -> bool:
         "Project",
         "Task",
         "Description",
+        "Email",
+        "Billable",
         "Start date",
         "Start time",
         "End date",
@@ -28,6 +30,8 @@ def required_headers(toggl_reader: csv.DictReader) -> bool:
         "Duration",
         "Tags",
     ]
+    if not toggl_reader.fieldnames:
+        raise Exception("CSV file is empty or has no headers.")
     for header in headers:
         if header not in toggl_reader.fieldnames:
             raise Exception(f"Header '{header}' not found in the CSV file.")
@@ -49,7 +53,15 @@ def required_data(toggl_row: Dict[str, str]) -> bool:
     required_fields = ["Project", "Task", "Start date", "Start time", "End date", "End time"]
     for field in required_fields:
         if not toggl_row.get(field):
-            raise Exception("Missing required data in the CSV file.")
+            project = toggl_row.get("Project", "")
+            task = toggl_row.get("Task", "")
+            context_parts = []
+            if project:
+                context_parts.append(f"Project='{project}'")
+            if task:
+                context_parts.append(f"Task='{task}'")
+            context = f" ({', '.join(context_parts)})" if context_parts else ""
+            raise Exception(f"Missing required data for field '{field}' in the CSV file{context}.")
     return True
 
 
@@ -227,6 +239,8 @@ def convert_toggl_to_zoho(input_file, output_file) -> None:
             should_close_output = True
 
         try:
+            if not zoho_rows:
+                raise Exception("No data rows found in the CSV file.")
             zoho_writer = csv.DictWriter(zoho_file, fieldnames=zoho_rows[0].keys())
             zoho_writer.writeheader()
             for zoho_row in zoho_rows:
