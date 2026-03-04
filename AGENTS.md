@@ -190,8 +190,8 @@ uv run pytest
 
 ### Code Formatting & Linting
 ```bash
-ruff format src/ tests/
-ruff check src/ tests/
+uv run ruff format src/ tests/
+uv run ruff check src/ tests/
 ```
 
 ## Upgrading
@@ -205,7 +205,6 @@ uv tool upgrade toggl-to-zoho
 
 ```bash
 uv tool uninstall toggl-to-zoho
-```
 ```
 
 Include:
