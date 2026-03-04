@@ -148,16 +148,16 @@ pytest tests/test_converter.py
 
 ```bash
 # Format code
-ruff format src/ tests/
+uv run ruff format src/ tests/
 
 # Check formatting without making changes
-ruff format --check src/ tests/
+uv run ruff format --check src/ tests/
 
 # Run linter
-ruff check src/ tests/
+uv run ruff check src/ tests/
 
 # Fix auto-fixable issues
-ruff check --fix src/ tests/
+uv run ruff check --fix src/ tests/
 ```
 
 ### Running Locally Without Installing
