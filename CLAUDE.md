@@ -19,10 +19,10 @@ uv run pytest
 uv run pytest tests/test_converter.py::TestGetDuration::test_simple_duration
 
 # Format
-ruff format src/ tests/
+uv run ruff format src/ tests/
 
 # Lint
-ruff check --fix src/ tests/
+uv run ruff check --fix src/ tests/
 
 # Run locally
 uv run python -m toggl_to_zoho input.csv output.csv
