@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-CLI utility that converts Toggl time tracking CSV exports to Zoho Books-compatible CSV format. Zero runtime dependencies (stdlib only). Python 3.8+.
+CLI utility that converts Toggl time tracking CSV exports to Zoho Books-compatible CSV format. Zero runtime dependencies (stdlib only). Python 3.9+.
 
 ## Commands
 
@@ -46,9 +46,16 @@ Three test levels in `tests/`:
 
 ## Code Style
 
-- Ruff: formatting + linting, 100 char line length, Python 3.8 target
+- Ruff: formatting + linting, 100 char line length, Python 3.9 target
 - Ruff lint rules: E, W, F, I, B, C4
 - Build backend: hatchling (configured in `pyproject.toml`)
+
+## Code Review
+
+GitHub Copilot is configured as a PR code reviewer. Its instructions are in
+[`.github/copilot-instructions.md`](.github/copilot-instructions.md). Copilot reviews
+deliver inline comments with suggestion blocks. Use `/resolve-pr-comments` to process
+review feedback.
 
 ## Naming Conventions
 
