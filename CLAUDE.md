@@ -55,7 +55,11 @@ Three test levels in `tests/`:
 Version handling follows the `app-version-management` skill: the single version
 literal lives in `pyproject.toml`; runtime code reads it via
 `importlib.metadata.version("toggl-to-zoho")`. Distribution name: `toggl-to-zoho`
-(executable: `toggl-to-zoho`). Never hardcode a version string elsewhere.
+(executable: `toggl-to-zoho`). Never hardcode a version string elsewhere. The one
+exception is the `0.0.0-dev` sentinel in `__init__.py`, which is what `__version__`
+falls back to when the package is not installed (running straight from a source
+tree); it is a "not installed" marker, not a release version, and it never changes
+when the real version is bumped.
 
 This tool is installed from git HEAD, so merging to main IS the release: a PR that
 makes `uv tool upgrade` produce a functionally different tool carries a version bump

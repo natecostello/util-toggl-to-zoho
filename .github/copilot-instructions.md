@@ -70,7 +70,7 @@ Configuration files:
 
 - Zero runtime dependencies — only stdlib `csv`, `datetime`, `argparse`
 - Dev dependencies are in `[dependency-groups]` (not `[project.optional-dependencies]`), so `uv sync` installs them automatically
-- `version` in `pyproject.toml` is the single source of truth — `__init__.py` and the CLI `--version` flag read it back via `importlib.metadata.version("toggl-to-zoho")`, so no version literal exists outside the manifest
+- `version` in `pyproject.toml` is the single source of truth — `__init__.py` and the CLI `--version` flag read it back via `importlib.metadata.version("toggl-to-zoho")`, so no release version literal exists outside the manifest. The only hardcoded string is the `0.0.0-dev` sentinel in `__init__.py`, used when the package is not installed; it is a "not installed" marker, not a version to bump
 - CLI sends success messages to stderr to keep stdout clean for piping
 
 ## Coding Conventions
