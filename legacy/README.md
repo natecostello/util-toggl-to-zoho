@@ -41,7 +41,7 @@ The modern version includes:
 - 🔧 stdin/stdout pipe support
 - 🧪 Comprehensive test suite (33 tests)
 - 📚 Better documentation
-- 🎯 Dynamic versioning
+- 🎯 Single-sourced versioning (version lives in `pyproject.toml`)
 - 🐍 Python 3.8+ support
 
 All the core functionality remains the same - this is purely a structural improvement.
