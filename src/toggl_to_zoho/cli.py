@@ -4,6 +4,7 @@ import argparse
 import sys
 from pathlib import Path
 
+from toggl_to_zoho import __version__
 from toggl_to_zoho.converter import convert_toggl_to_zoho
 
 
@@ -38,7 +39,7 @@ def main():
         ),
     )
 
-    parser.add_argument("--version", action="version", version="%(prog)s 0.1.0")
+    parser.add_argument("--version", action="version", version=f"%(prog)s {__version__}")
 
     args = parser.parse_args()
 

@@ -34,7 +34,7 @@ cat input.csv | toggl-to-zoho > output.csv   # pipe mode
 
 - **`src/toggl_to_zoho/converter.py`** — Core conversion logic: CSV validation, duration calculation (handles midnight crossings), multi-day entry splitting, time reformatting (HH:MM:SS→HH:MM), field renaming (Toggl→Zoho column mapping). Main entry: `convert_toggl_to_zoho()` accepts both file paths and file-like objects.
 - **`src/toggl_to_zoho/cli.py`** — argparse CLI. Supports file args, auto-generated output names (`zoho_<input>`), and stdin/stdout piping (explicit `-` or auto-detected). Success messages go to stderr to keep stdout clean for piping.
-- **`src/toggl_to_zoho/__init__.py`** — Single source of truth for `__version__` (read by hatchling for dynamic versioning).
+- **`src/toggl_to_zoho/__init__.py`** — Exposes `__version__`, read from installed package metadata via `importlib.metadata.version("toggl-to-zoho")`. Not a version literal — see [Versioning](#versioning).
 - **`legacy/toggl2zoho`** — Original monolithic script, preserved for reference.
 
 ## Testing
@@ -49,6 +49,17 @@ Three test levels in `tests/`:
 - Ruff: formatting + linting, 100 char line length, Python 3.9 target
 - Ruff lint rules: E, W, F, I, B, C4
 - Build backend: hatchling (configured in `pyproject.toml`)
+
+## Versioning
+
+Version handling follows the `app-version-management` skill: the single version
+literal lives in `pyproject.toml`; runtime code reads it via
+`importlib.metadata.version("toggl-to-zoho")`. Distribution name: `toggl-to-zoho`
+(executable: `toggl-to-zoho`). Never hardcode a version string elsewhere.
+
+This tool is installed from git HEAD, so merging to main IS the release: a PR that
+makes `uv tool upgrade` produce a functionally different tool carries a version bump
+in `pyproject.toml` (patch by default). Docs/CI/test-only PRs do not bump.
 
 ## Code Review
 

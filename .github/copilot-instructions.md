@@ -42,7 +42,7 @@ No external services or databases. All I/O is file-based CSV.
 
 ```
 src/toggl_to_zoho/
-  __init__.py       — __version__ (single source of truth, read by hatchling)
+  __init__.py       — __version__, read from installed metadata (importlib.metadata)
   cli.py            — argparse CLI: file args, auto-naming, stdin/stdout piping
   converter.py      — Core conversion: validation, duration calc, date splitting, field mapping
   __main__.py       — Module entry point
@@ -70,7 +70,7 @@ Configuration files:
 
 - Zero runtime dependencies — only stdlib `csv`, `datetime`, `argparse`
 - Dev dependencies are in `[dependency-groups]` (not `[project.optional-dependencies]`), so `uv sync` installs them automatically
-- `__version__` in `__init__.py` is the single source of truth — hatchling reads it for package version
+- `version` in `pyproject.toml` is the single source of truth — `__init__.py` and the CLI `--version` flag read it back via `importlib.metadata.version("toggl-to-zoho")`, so no version literal exists outside the manifest
 - CLI sends success messages to stderr to keep stdout clean for piping
 
 ## Coding Conventions
@@ -78,7 +78,7 @@ Configuration files:
 - Python 3.9+, managed with uv
 - Ruff for linting and formatting, 100 char line length
 - Ruff lint rules: E, W, F, I, B, C4
-- Build backend: hatchling with dynamic versioning from `__init__.py`
+- Build backend: hatchling with a static `version` in `pyproject.toml`
 - Naming: package/command uses hyphens (`toggl-to-zoho`), Python module uses underscores (`toggl_to_zoho`)
 
 ## Code Review Focus Areas

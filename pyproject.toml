@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "toggl-to-zoho"
-dynamic = ["version"]
+version = "0.1.2"
 description = "Convert Toggl time entries to Zoho-compatible CSV format"
 readme = "README.md"
 requires-python = ">=3.9"
@@ -57,9 +57,6 @@ select = [
     "B",  # flake8-bugbear
     "C4", # flake8-comprehensions
 ]
-
-[tool.hatch.version]
-path = "src/toggl_to_zoho/__init__.py"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
