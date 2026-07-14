@@ -9,7 +9,7 @@ This directory contains the original single-file implementation of the Toggl-to-
 ### Modern Installation
 
 ```bash
-pipx install git+https://github.com/natecostello/util-toggl-to-zoho.git
+uv tool install git+https://github.com/natecostello/util-toggl-to-zoho.git
 ```
 
 ### Modern Usage
@@ -37,7 +37,7 @@ The original `toggl2zoho` script is preserved here for:
 
 The modern version includes:
 - ✨ Proper Python package structure
-- 📦 Easy installation via pipx
+- 📦 Easy installation via uv
 - 🔧 stdin/stdout pipe support
 - 🧪 Comprehensive test suite (33 tests)
 - 📚 Better documentation
