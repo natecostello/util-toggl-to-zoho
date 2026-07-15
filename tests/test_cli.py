@@ -358,15 +358,16 @@ class TestCLIRealWorldSubprocess:
         assert len(rows) == 50
 
     def test_cli_as_subprocess_version(self):
-        """Test --version flag."""
+        """Test --version flag reports the installed package version (no hardcoded literal)."""
         import subprocess
+        from importlib.metadata import version
 
         result = subprocess.run(
             [sys.executable, "-m", "toggl_to_zoho", "--version"], capture_output=True, text=True
         )
 
         assert result.returncode == 0
-        assert "0.1.0" in result.stdout
+        assert version("toggl-to-zoho") in result.stdout
 
     def test_cli_as_subprocess_help(self):
         """Test --help flag."""
